@@ -34,6 +34,19 @@
             android:layout_height="wrap_content"
             android:text="@string/show_exit_alert"
             android:textAllCaps="false" />
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:id="@+id/seekBarVolume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewSeekBarProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
 

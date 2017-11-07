@@ -7,17 +7,25 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatButton
+import android.support.v7.widget.AppCompatSeekBar
+import android.support.v7.widget.AppCompatTextView
+import android.util.Log
 import android.view.View
+import android.widget.SeekBar
 import android.widget.Toast
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
+    val LOG_TAG = MainActivity::class.simpleName
 
     private lateinit var coordinateLayout: CoordinatorLayout
 
     private lateinit var buttonShowToast: AppCompatButton
     private lateinit var buttonShowSnack: AppCompatButton
     private lateinit var buttonShowExitAlert: AppCompatButton
+
+    private lateinit var seekBarVolume: AppCompatSeekBar
+    private lateinit var textViewSeekBarProgress: AppCompatTextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +45,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         buttonShowToast.setOnClickListener(this)
         buttonShowSnack.setOnClickListener(this)
         buttonShowExitAlert.setOnClickListener(this)
+
+        seekBarVolume.setOnSeekBarChangeListener(this)
     }
 
     /**
@@ -49,6 +59,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         buttonShowToast = findViewById(R.id.buttonShowToast)
         buttonShowSnack = findViewById(R.id.buttonShowSnack)
         buttonShowExitAlert = findViewById(R.id.buttonShowExitAlert)
+
+        seekBarVolume = findViewById(R.id.seekBarVolume)
+        textViewSeekBarProgress = findViewById(R.id.textViewSeekBarProgress)
+
+        textViewSeekBarProgress.text = seekBarVolume.progress.toString()
     }
 
 
@@ -103,5 +118,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         exitAlertDialog?.show()
     }
 
+    override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {
+
+        //Log.d(LOG_TAG,progress.toString())
+        textViewSeekBarProgress.text = progress.toString()
+    }
+
+    override fun onStartTrackingTouch(seekbar: SeekBar?) {
+        Log.d(LOG_TAG,seekbar?.progress.toString())
+    }
+
+    override fun onStopTrackingTouch(seekbar: SeekBar?) {
+        Log.d(LOG_TAG,seekbar?.progress.toString())
+    }
 
 }
