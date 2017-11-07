@@ -8,9 +8,11 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatButton
 import android.support.v7.widget.AppCompatSeekBar
+import android.support.v7.widget.AppCompatSpinner
 import android.support.v7.widget.AppCompatTextView
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.SeekBar
 import android.widget.Toast
 
@@ -28,12 +30,46 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, SeekBar.OnSeekBa
     private lateinit var textViewSeekBarProgress: AppCompatTextView
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         initUI()
         setOnClickListenerOnButtons()
+        setupSpinner()
+
+    }
+
+    /**
+     * Create Month name Spinner
+     *
+     */
+    private fun setupSpinner() {
+
+        val spinnerMonth:AppCompatSpinner = findViewById(R.id.spinnerMonth)
+
+        // Create String array of month
+        val monthArray = arrayOf("January", "February", "March",
+                                 "April", "May", "June", "July",
+                                 "August", "September", "October",
+                                 "November", "December")
+
+
+        // Create ArrayAdapter
+        val monthSpinnerAdapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                monthArray
+        )
+
+        // Set Drop Down Resource layout
+        monthSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        // Set adapter on Spinner
+        spinnerMonth.adapter = monthSpinnerAdapter
+
 
     }
 
