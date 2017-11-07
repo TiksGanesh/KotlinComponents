@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">KotlinComponets</string>
+    <string name="show_toast">Show Toast</string>
+    <string name="show_snack">Show SnackBar</string>
+    <string name="show_exit_alert">Show Exit Alert</string>
 </resources>

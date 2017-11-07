@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentCoordinateLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.ganeshtikone.kotlincomponets.MainActivity">
 
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/buttonShowToast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_toast"
+            android:textAllCaps="false" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/buttonShowSnack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_snack"
+            android:textAllCaps="false" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/buttonShowExitAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_exit_alert"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
