@@ -6,5 +6,3 @@
 - Working with material design component - Snackbar
 - Working with AlertDialog
 - Working with SeekBar
-- Working with RecyclerView
-- Working with Interface in Kotlin
